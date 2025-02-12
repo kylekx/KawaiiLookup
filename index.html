@@ -70,6 +70,7 @@
             <div class="mb-3">
               <select class="form-control mb-2" id="optionSelect">
                 <option value="1">Option: (TLO)</option>
+                <option value="2">Option: (DL)</option>
               </select>
               <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname">
               <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname">
@@ -189,7 +190,7 @@
         if (option == '1') {
           botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
         } else if (option == '2') {
-          botResult = '/ssn ' + fname + ',' + lname + ',' + city + ',' + state + ',' + zip + ',' + dob;
+          botResult = fname + ',' + lname + ',' + city + ',' + state + ',' + dob;
         }
 
         botResultsTextarea.value = botResult;
