@@ -174,30 +174,41 @@
       // Bot results
       var form = document.getElementById('singleLookup');
       var botResultsTextarea = document.getElementById('botResults');
-      form.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        var fname = document.getElementById('singleLookupFname').value;
-        var lname = document.getElementById('singleLookupLname').value;
-        var address = document.getElementById('singleLookupAddress').value;
-        var city = document.getElementById('singleLookupCity').value;
-        var state = document.getElementById('singleLookupState').value;
-        var zip = document.getElementById('singleLookupZIP').value;
-        var dob = document.getElementById('singleLookupDOB').value;
+        form.addEventListener('click', function(event) {
+          event.preventDefault();
         
-        var option = document.getElementById('optionSelect').value;
+          var fname = document.getElementById('singleLookupFname').value.trim();
+          var lname = document.getElementById('singleLookupLname').value.trim();
+          var address = document.getElementById('singleLookupAddress').value.trim();
+          var city = document.getElementById('singleLookupCity').value.trim();
+          var state = document.getElementById('singleLookupState').value.trim();
+          var zip = document.getElementById('singleLookupZIP').value.trim();
+          var dob = document.getElementById('singleLookupDOB').value.trim();
+        
+          var option = document.getElementById('optionSelect').value;
+          var botResult = '';
+        
+          if (option == '1') {
+            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
+          } else if (option == '2') {
+            // SSN Lookup requires all fields
+            if (!fname || !lname || !address || !city || !state || !zip) {
+              botResultsTextarea.value = "All info is required";
+              return;
+            }
+            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
+          } else if (option == '3') {
+            // DL Lookup requires all fields
+            if (!fname || !lname || !address || !city || !state || !dob) {
+              botResultsTextarea.value = "All info is required";
+              return;
+            }
+            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
+          }
+        
+          botResultsTextarea.value = botResult;
+        });
 
-        var botResult = '';
-        if (option == '1') {
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
-        } else if (option == '3') {
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
-        } else if (option == '2') {
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
-        }
-
-        botResultsTextarea.value = botResult;
-      });
     });
   </script>
 </body>
