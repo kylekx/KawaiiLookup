@@ -72,12 +72,13 @@
                 <option value="1">Option: (TLO)</option>
                 <option value="2">Option: (SSN)</option>
                 <option value="3">Option: (DL)</option>
+                <option value="4">Option: (Credit Report)</option>
               </select>
-              <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname">
-              <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname">
-              <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress">
-              <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity">
-              <select class="form-control mb-2" name="State" id="singleLookupState">
+              <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname" required>
+              <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname" required>
+              <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress" required>
+              <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity" required>
+              <select class="form-control mb-2" name="State" id="singleLookupState" required>
               <option value="">Select a state</option>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -136,8 +137,8 @@
                   <option value="WY">WY</option>
               </select>
               
-              <input class="form-control mb-2" type="text" placeholder="Area Code (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5">
-              <input class="form-control mb-2" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB">
+              <input class="form-control mb-2" type="text" placeholder="Area Code (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5" required>
+              <input class="form-control mb-2" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB" required>
             </div>
             <div class="mb-3">
               <button class="btn btn-primary btn-block" type="button" id="singleLookup">Generate</button>
@@ -170,45 +171,54 @@
       
       alert("Copied syntax to clipboard: " + copyText.value);
     }
+    
     document.addEventListener('DOMContentLoaded', function() {
-      // Bot results
       var form = document.getElementById('singleLookup');
       var botResultsTextarea = document.getElementById('botResults');
-        form.addEventListener('click', function(event) {
-          event.preventDefault();
+      
+      form.addEventListener('click', function(event) {
+        event.preventDefault();
         
-          var fname = document.getElementById('singleLookupFname').value.trim();
-          var lname = document.getElementById('singleLookupLname').value.trim();
-          var address = document.getElementById('singleLookupAddress').value.trim();
-          var city = document.getElementById('singleLookupCity').value.trim();
-          var state = document.getElementById('singleLookupState').value.trim();
-          var zip = document.getElementById('singleLookupZIP').value.trim();
-          var dob = document.getElementById('singleLookupDOB').value.trim();
+        var fname = document.getElementById('singleLookupFname').value.trim();
+        var lname = document.getElementById('singleLookupLname').value.trim();
+        var address = document.getElementById('singleLookupAddress').value.trim();
+        var city = document.getElementById('singleLookupCity').value.trim();
+        var state = document.getElementById('singleLookupState').value.trim();
+        var zip = document.getElementById('singleLookupZIP').value.trim();
+        var dob = document.getElementById('singleLookupDOB').value.trim();
         
-          var option = document.getElementById('optionSelect').value;
-          var botResult = '';
+        var option = document.getElementById('optionSelect').value;
+        var botResult = '';
         
-          if (option == '1') {
-            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
-          } else if (option == '2') {
-            // SSN Lookup requires all fields
-            if (!fname || !lname || !address || !city || !state || !zip) {
-              botResultsTextarea.value = "All info is required";
-              return;
-            }
-            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
-          } else if (option == '3') {
-            // DL Lookup requires all fields
-            if (!fname || !lname || !address || !city || !state || !dob) {
-              botResultsTextarea.value = "All info is required";
-              return;
-            }
-            botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
+        if (option == '1') {
+          // TLO option
+          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
+        } else if (option == '2') {
+          // SSN Lookup requires all fields
+          if (!fname || !lname || !address || !city || !state || !zip) {
+            botResultsTextarea.value = "All info is required";
+            return;
           }
+          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
+        } else if (option == '3') {
+          // DL Lookup requires all fields
+          if (!fname || !lname || !address || !city || !state || !dob) {
+            botResultsTextarea.value = "All info is required";
+            return;
+          }
+          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
+        } else if (option == '4') {
+          // Credit Report option - requires ALL fields
+          if (!fname || !lname || !address || !city || !state || !zip || !dob) {
+            botResultsTextarea.value = "All info is required for Credit Report";
+            return;
+          }
+          // Format: fname, lname, street, city, state, zip, dob
+          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
+        }
         
-          botResultsTextarea.value = botResult;
-        });
-
+        botResultsTextarea.value = botResult;
+      });
     });
   </script>
 </body>
