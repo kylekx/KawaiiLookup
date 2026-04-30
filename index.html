@@ -1,229 +1,248 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KawaiiLookupBot</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-  body {
-      background-image: url('https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?cs=srgb&dl=pexels-felix-mittermeier-957061.jpg&fm=jpghttps://wallpapercrafter.com/sizes/2560x1440/20293-stars-galaxy-milky-way-starry-sky-night-sky-4k.jpg'); 
-      background-color: #121212;
-      color: #fff;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-  }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KawaiiLookupBot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?cs=srgb&dl=pexels-felix-mittermeier-957061.jpg&fm=jpghttps://wallpapercrafter.com/sizes/2560x1440/20293-stars-galaxy-milky-way-starry-sky-night-sky-4k.jpg');
+            background-color: #121212;
+            color: #fff;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
-  .card {
-      background-color: #2a292b;
-  }
+        .card {
+            background-color: #2a292b;
+        }
 
-  .card-title {
-      color: #fff;
-  }
+        .card-title {
+            color: #fff;
+        }
 
-  .form-control {
-      background-color: #2b2b2b;
-      border-color: #444;
-      color: #fff;
-  }
+        .form-control {
+            background-color: #2b2b2b;
+            border-color: #444;
+            color: #fff;
+        }
 
-  .form-control::placeholder {
-      color: #ccc;
-  }
+        .form-control::placeholder {
+            color: #ccc;
+        }
 
-  .form-control:focus {
-      background-color: #333;
-      border-color: #555;
-      color: #fff;
-  }
+        .form-control:focus {
+            background-color: #333;
+            border-color: #555;
+            color: #fff;
+        }
 
-  .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-  }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
 
-  .btn-primary:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-  }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
 
-  .btn-primary:active {
-      background-color: #004185;
-      border-color: #004185;
-  }
+        .btn-primary:active {
+            background-color: #004185;
+            border-color: #004185;
+        }
 
-  .btn-primary:focus {
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-  }
-
-  </style>
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        }
+    </style>
 </head>
 <body>
-  <section class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title mb-4">Input</h3>
-            <div class="mb-3">
-              <select class="form-control mb-2" id="optionSelect">
-                <option value="1">Option: (TLO)</option>
-                <option value="2">Option: (SSN)</option>
-                <option value="3">Option: (DL)</option>
-                <option value="4">Option: (Credit Report)</option>
-              </select>
-              <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname" required>
-              <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname" required>
-              <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress" required>
-              <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity" required>
-              <select class="form-control mb-2" name="State" id="singleLookupState" required>
-              <option value="">Select a state</option>
-                  <option value="AL">AL</option>
-                  <option value="AK">AK</option>
-                  <option value="AZ">AZ</option>
-                  <option value="AR">AR</option>
-                  <option value="CA">CA</option>
-                  <option value="CZ">CZ</option>
-                  <option value="CO">CO</option>
-                  <option value="CT">CT</option>
-                  <option value="DE">DE</option>
-                  <option value="DC">DC</option>
-                  <option value="FL">FL</option>
-                  <option value="GA">GA</option>
-                  <option value="GU">GU</option>
-                  <option value="HI">HI</option>
-                  <option value="ID">ID</option>
-                  <option value="IL">IL</option>
-                  <option value="IN">IN</option>
-                  <option value="IA">IA</option>
-                  <option value="KS">KS</option>
-                  <option value="KY">KY</option>
-                  <option value="LA">LA</option>
-                  <option value="ME">ME</option>
-                  <option value="MD">MD</option>
-                  <option value="MA">MA</option>
-                  <option value="MI">MI</option>
-                  <option value="MN">MN</option>
-                  <option value="MS">MS</option>
-                  <option value="MO">MO</option>
-                  <option value="MT">MT</option>
-                  <option value="NE">NE</option>
-                  <option value="NV">NV</option>
-                  <option value="NH">NH</option>
-                  <option value="NJ">NJ</option>
-                  <option value="NM">NM</option>
-                  <option value="NY">NY</option>
-                  <option value="NC">NC</option>
-                  <option value="ND">ND</option>
-                  <option value="OH">OH</option>
-                  <option value="OK">OK</option>
-                  <option value="OR">OR</option>
-                  <option value="PA">PA</option>
-                  <option value="PR">PR</option>
-                  <option value="RI">RI</option>
-                  <option value="SC">SC</option>
-                  <option value="SD">SD</option>
-                  <option value="TN">TN</option>
-                  <option value="TX">TX</option>
-                  <option value="UT">UT</option>
-                  <option value="VT">VT</option>
-                  <option value="VI">VI</option>
-                  <option value="VA">VA</option>
-                  <option value="WA">WA</option>
-                  <option value="WV">WV</option>
-                  <option value="WI">WI</option>
-                  <option value="WY">WY</option>
-              </select>
-              
-              <input class="form-control mb-2" type="text" placeholder="Area Code (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5" required>
-              <input class="form-control mb-2" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB" required>
+    <section class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Input</h3>
+                        <div class="mb-3">
+                            <select class="form-control mb-2" id="optionSelect">
+                                <option value="1">Option: (TLO)</option>
+                                <option value="2">Option: (SSN)</option>
+                                <option value="3">Option: (DL)</option>
+                                <option value="4">Option: (Credit Report)</option>
+                            </select>
+                            <input class="form-control mb-2" type="text" placeholder="First Name" name="Fname" id="singleLookupFname">
+                            <input class="form-control mb-2" type="text" placeholder="Last Name" name="Lname" id="singleLookupLname">
+                            <input class="form-control mb-2" type="text" placeholder="Street Address" name="Address" id="singleLookupAddress">
+                            <input class="form-control mb-2" type="text" placeholder="City" name="City" id="singleLookupCity">
+                            <select class="form-control mb-2" name="State" id="singleLookupState">
+                                <option value="">Select a state</option>
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AZ">AZ</option>
+                                <option value="AR">AR</option>
+                                <option value="CA">CA</option>
+                                <option value="CZ">CZ</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DE">DE</option>
+                                <option value="DC">DC</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="GU">GU</option>
+                                <option value="HI">HI</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="IA">IA</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="ME">ME</option>
+                                <option value="MD">MD</option>
+                                <option value="MA">MA</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MS">MS</option>
+                                <option value="MO">MO</option>
+                                <option value="MT">MT</option>
+                                <option value="NE">NE</option>
+                                <option value="NV">NV</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NY">NY</option>
+                                <option value="NC">NC</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="PR">PR</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VI">VI</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WV">WV</option>
+                                <option value="WI">WI</option>
+                                <option value="WY">WY</option>
+                            </select>
+
+                            <input class="form-control mb-2" type="text" placeholder="Area Code (5 digits)" name="ZIP" id="singleLookupZIP" maxlength="5">
+                            <input class="form-control mb-2" type="text" placeholder="DOB (MM/DD/YYYY)" name="DOB" id="singleLookupDOB">
+                            <!-- SSN field, hidden by default, shown only for Credit Report -->
+                            <input class="form-control mb-2" type="text" placeholder="SSN" name="SSN" id="singleLookupSSN" style="display:none;">
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary btn-block" type="button" id="singleLookup">Generate</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-              <button class="btn btn-primary btn-block" type="button" id="singleLookup">Generate</button>
+            <div class="col-md-6">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Kawaii Syntax Generator</h3>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Syntax appears here." name="batchForm" id="botResults"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="button" id="copyResults" onclick="copy()">Copy Syntax</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mt-4">
-          <div class="card-body">
-            <h3 class="card-title mb-4">Kawaii Syntax Generator</h3>
-            <div class="mb-3">
-              <textarea class="form-control" rows="5" placeholder="Syntax appears here." name="batchForm" id="botResults"></textarea>
-            </div>
-              <button class="btn btn-primary" type="button" id="copyResults" onclick="copy()">Copy Syntax</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    function copy() {
-      var copyText = document.getElementById("botResults");
-
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-
-      document.execCommand("copy");;
-      
-      alert("Copied syntax to clipboard: " + copyText.value);
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      var form = document.getElementById('singleLookup');
-      var botResultsTextarea = document.getElementById('botResults');
-      
-      form.addEventListener('click', function(event) {
-        event.preventDefault();
-        
-        var fname = document.getElementById('singleLookupFname').value.trim();
-        var lname = document.getElementById('singleLookupLname').value.trim();
-        var address = document.getElementById('singleLookupAddress').value.trim();
-        var city = document.getElementById('singleLookupCity').value.trim();
-        var state = document.getElementById('singleLookupState').value.trim();
-        var zip = document.getElementById('singleLookupZIP').value.trim();
-        var dob = document.getElementById('singleLookupDOB').value.trim();
-        
-        var option = document.getElementById('optionSelect').value;
-        var botResult = '';
-        
-        if (option == '1') {
-          // TLO option
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
-        } else if (option == '2') {
-          // SSN Lookup requires all fields
-          if (!fname || !lname || !address || !city || !state || !zip) {
-            botResultsTextarea.value = "All info is required";
-            return;
-          }
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
-        } else if (option == '3') {
-          // DL Lookup requires all fields
-          if (!fname || !lname || !address || !city || !state || !dob) {
-            botResultsTextarea.value = "All info is required";
-            return;
-          }
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
-        } else if (option == '4') {
-          // Credit Report option - requires ALL fields
-          if (!fname || !lname || !address || !city || !state || !zip || !dob) {
-            botResultsTextarea.value = "All info is required for Credit Report";
-            return;
-          }
-          // Format: fname, lname, street, city, state, zip, dob
-          botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
+    <script>
+        function copy() {
+            var copyText = document.getElementById("botResults");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied syntax to clipboard: " + copyText.value);
         }
-        
-        botResultsTextarea.value = botResult;
-      });
-    });
-  </script>
+
+        // Show/hide fields based on selected option
+        function updateFormConfiguration() {
+            var option = document.getElementById('optionSelect').value;
+
+            // Always visible fields: fname, lname, address, city, state
+            // ZIP visible except for DL (option 3)
+            document.getElementById('singleLookupZIP').style.display = (option == '3') ? 'none' : 'block';
+            // DOB visible except for SSN lookup (option 2)
+            document.getElementById('singleLookupDOB').style.display = (option == '2') ? 'none' : 'block';
+            // SSN visible only for Credit Report (option 4)
+            document.getElementById('singleLookupSSN').style.display = (option == '4') ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('singleLookup');
+            var botResultsTextarea = document.getElementById('botResults');
+            var optionSelect = document.getElementById('optionSelect');
+
+            // Initial configuration (default is option 1)
+            updateFormConfiguration();
+
+            // Update when dropdown changes
+            optionSelect.addEventListener('change', updateFormConfiguration);
+
+            form.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                var fname = document.getElementById('singleLookupFname').value.trim();
+                var lname = document.getElementById('singleLookupLname').value.trim();
+                var address = document.getElementById('singleLookupAddress').value.trim();
+                var city = document.getElementById('singleLookupCity').value.trim();
+                var state = document.getElementById('singleLookupState').value.trim();
+                var zip = document.getElementById('singleLookupZIP').value.trim();
+                var dob = document.getElementById('singleLookupDOB').value.trim();
+                var ssn = document.getElementById('singleLookupSSN').value.trim();
+
+                var option = optionSelect.value;
+                var botResult = '';
+
+                if (option == '1') {
+                    // TLO: no validation — allow any fields to be left blank
+                    // Simply concatenate all visible fields in order
+                    botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob;
+                } else if (option == '2') {
+                    // SSN Lookup: fname, lname, address, city, state, zip are ALL required
+                    if (!fname || !lname || !address || !city || !state || !zip) {
+                        botResultsTextarea.value = "All info is required for SSN Lookup";
+                        return;
+                    }
+                    botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip;
+                } else if (option == '3') {
+                    // DL Lookup: fname, lname, address, city, state, dob are ALL required
+                    if (!fname || !lname || !address || !city || !state || !dob) {
+                        botResultsTextarea.value = "All info is required for DL Lookup";
+                        return;
+                    }
+                    botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + dob;
+                } else if (option == '4') {
+                    // Credit Report: all fields including SSN are required
+                    if (!fname || !lname || !address || !city || !state || !zip || !dob || !ssn) {
+                        botResultsTextarea.value = "All info is required for Credit Report (including SSN)";
+                        return;
+                    }
+                    botResult = fname + ',' + lname + ',' + address + ',' + city + ',' + state + ',' + zip + ',' + dob + ',' + ssn;
+                }
+
+                botResultsTextarea.value = botResult;
+            });
+        });
+    </script>
 </body>
 <div class="p-1 text-center" style="margin-top: 75px;">
     <a href="https://t.me/KawaiiSupport_Group" style="color: #5bb4E1;"> @KawaiiSupport_Group</a><br>
     <a href="https://t.me/KyleKoxy" style="color: #5bb4E1;">@KyleKoxy - Support</a>
-  </div>
+</div>
 </html>
